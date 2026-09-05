@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="dark">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
+<title>StudyOS — Your Personal Study Operating System</title>
+<meta name="description" content="Plan, study, practise and track your progress in one offline-first app built for students." />
+<meta name="theme-color" content="#0b0d12" />
+<meta name="apple-mobile-web-app-capable" content="yes" />
+<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
+<meta name="apple-mobile-web-app-title" content="StudyOS" />
+<link rel="manifest" href="manifest.webmanifest" />
+<link rel="icon" href="icons/icon.svg" type="image/svg+xml" />
+<link rel="apple-touch-icon" href="icons/icon-180.png" />
+<link rel="stylesheet" href="css/styles.css" />
+<link rel="stylesheet" href="css/auth.css" />
+</head>
+<body>
+
+<!-- ===== Sign-in / sign-up / guest ===== -->
+<div id="authRoot"></div>
+
+<!-- ===== The app ===== -->
+<div id="appRoot" style="display:none">
+  <div id="chrome">
+    <header class="mobile-top" id="mobileTop"></header>
+  </div>
+  <div class="app">
+    <aside class="sidebar" id="sidebar"></aside>
+    <main class="main" id="main"></main>
+  </div>
+  <nav class="mobile-nav" id="mobileNav"></nav>
+</div>
+
+<div id="modalRoot"></div>
+<div class="toast-stack" id="toastRoot"></div>
+
+<script src="js/utils.js"></script>
+<script src="js/logo.js"></script>
+<script src="js/db.js"></script>
+<script src="js/db-bridge.js"></script>
+<script src="js/store.js"></script>
+<script src="js/tutor.js"></script>
+<script src="js/ui.js"></script>
+<script src="js/auth.js"></script>
+<script src="js/pages-core.js"></script>
+<script src="js/pages-study.js"></script>
+<script src="js/pages-meta.js"></script>
+<script src="js/app.js"></script>
+<script>
+  if ("serviceWorker" in navigator) {
+    window.addEventListener("load", () => {
+      navigator.serviceWorker.register("sw.js").catch(() => {});
+    });
+  }
+</script>
+</body>
+</html>
